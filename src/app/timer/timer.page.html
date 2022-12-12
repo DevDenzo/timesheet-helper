@@ -13,4 +13,41 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="stopwatch pt-3">
+    <h1 text-center class="color-white font-lg">
+      {{time}}
+    </h1>
+    <ion-grid>
+      <ion-row text-center class="mt-5">
+        <ion-col class="col-12" *ngIf="!running && time === blankTime">
+          <button class="circle-button circle-button-bg font-md" ion-button (click)="start()">Start</button>
+        </ion-col>
+        <ion-col class="col-12" *ngIf="running">
+          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="pause()">Pause</button>
+          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="stop()">Stop</button>
+        </ion-col>
+        <ion-col class="col-12" *ngIf="!running && time !== blankTime">
+          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="resume()">Resume</button>
+          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="stop()">Stop</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Additional Information</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-label>Engagement Code</ion-label>
+          <ion-input></ion-input>
+          <ion-label>Activity ID</ion-label>
+          <ion-input></ion-input>
+          <ion-label>Notes</ion-label>
+          <ion-textarea></ion-textarea>
+        </div>
+      </ion-accordion>
+  </ion-accordion-group>
+
 </ion-content>
