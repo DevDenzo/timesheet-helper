@@ -9,4 +9,8 @@ export class SettingsPage {
 
   constructor() {}
 
+  editEmail() {
+    console.log("Clicked")
+  }
+
 }
