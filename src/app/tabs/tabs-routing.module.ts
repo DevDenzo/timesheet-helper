@@ -12,8 +12,8 @@ const routes: Routes = [
         loadChildren: () => import('../timer/timer.module').then(m => m.TimerPageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'records',
+        loadChildren: () => import('../records/records.module').then(m => m.RecordsPageModule)
       },
       {
         path: 'tab3',
