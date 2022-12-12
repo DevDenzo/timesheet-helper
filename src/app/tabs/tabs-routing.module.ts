@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: () => import('../records/records.module').then(m => m.RecordsPageModule)
       },
       {
-        path: 'tab3',
+        path: 'settings',
         loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
       },
       {

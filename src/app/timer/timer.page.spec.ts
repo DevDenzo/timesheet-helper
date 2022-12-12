@@ -5,7 +5,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { TimerPage } from './timer.page';
 
-describe('Tab1Page', () => {
+describe('TimerPage', () => {
   let component: TimerPage;
   let fixture: ComponentFixture<TimerPage>;
 
