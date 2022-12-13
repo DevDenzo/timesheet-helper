@@ -14,9 +14,10 @@
   </ion-header>
 
   <div class="stopwatch pt-3">
-    <h1 text-center class="color-white font-lg">
+    <h1>Record Time</h1>
+    <ion-label>
       {{time}}
-    </h1>
+    </ion-label>
     <ion-grid>
       <ion-row text-center class="mt-5">
         <ion-col class="col-12" *ngIf="!running && time === blankTime">
