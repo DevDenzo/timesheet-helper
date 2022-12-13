@@ -19,6 +19,7 @@ export class TimerPage {
   public time = "00:00.000"
   public timePaused:any = null
   public timeResumed:any = null
+  public displayTime:any = "00:00:00"
 
   start() {
     if(this.running) {
@@ -51,6 +52,7 @@ export class TimerPage {
 
     // Create the code here which makes a log of the relevant information. Then clear all the input fields. And provide a notification about the log being sent to records.
     this.reset()
+    this.displayTime = "00:00:00"
   }
 
   pause() {
@@ -93,5 +95,10 @@ export class TimerPage {
       this.zeroPrefix(min, 2) + ":" +
       this.zeroPrefix(sec, 2) + "." +
       this.zeroPrefix(ms, 3);
+
+      this.displayTime =
+      this.zeroPrefix(hour, 2) + ":" +
+      this.zeroPrefix(min, 2) + ":" +
+      this.zeroPrefix(sec, 2)
   };
 }
