@@ -3,5 +3,12 @@ Timesheet helper mobile application developed using ionic and angular. The idea 
 
 # How to setup
 
-Run 
+Run
+
+To run in browser as a web application
+``` ionic serve ```
+
+To run as a phone application using android studio run
 ``` ionic capacitor copy android ```
+then click run on android studio so the app starts on the emulated device
+

@@ -1,5 +1,6 @@
 .sub-title {
-    padding-top: 25%;
+    font-size: 40px;
+    padding-top: 5%;
 }
 
 .timer{
@@ -9,12 +10,18 @@
     background: #2E2E38;
     border-radius: 20px;
     text-align: center;
+    margin-top: 20px;
 
     .timer-time{
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 60px;
     }
+}
+
+.buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .button-zone {
@@ -24,26 +31,36 @@
 }
 
 .start-button{
-    background: #4FC132;
+    border: 3px solid #4FC132;
 }
 
 .stop-button{
-    background: #F00E0E;
+    border: 3px solid #F00E0E;
 }
 
 .pause-button{
-    background:#FFFF8F;
+    border: 3px solid #FFE500;
 }
 
 .button{
     min-height: 50px;
-    border-radius: 10px;
+    width: 25%;
+    border-radius: 15px;
     text-align: center;
     color:white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 16px;
-    width: 20%;
-    margin-left: 20px;
-    margin-right: 20px
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #000000;
+}
+
+.accordian {
+    color: white;
+}
+
+.accordian-header{
+    text-align: center;
+    color: white;
 }

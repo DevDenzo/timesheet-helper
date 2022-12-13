@@ -28,6 +28,10 @@
 /* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+h4 {
+    margin-left: 5%;
+}
+
 .title {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
@@ -37,4 +41,14 @@
 
 .page-content{
     padding-top: 20px;
+}
+
+.input-field{
+    margin-top: 3px;
+    border: 2px solid white;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    margin-bottom: 5px;
 }

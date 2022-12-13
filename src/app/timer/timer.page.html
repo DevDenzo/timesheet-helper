@@ -13,10 +13,12 @@
             </ion-label>
         </div>
 
-        <ion-grid>
-        <ion-row >
+        <ion-grid class="buttons">
+        <ion-row>
             <ion-col class="button-zone" *ngIf="!running && time === blankTime">
-            <button class="start-button button" ion-button (click)="start()">Start</button>
+            <button class="start-button button" ion-button (click)="start()">Start
+                <ion-ripple-effect></ion-ripple-effect>
+            </button>
             </ion-col>
             <ion-col class="button-zone" *ngIf="running">
             <button class="pause-button button" ion-button (click)="pause()">Pause</button>
@@ -30,18 +32,18 @@
         </ion-grid>
     </div>
 
-        <ion-accordion-group>
+        <ion-accordion-group >
             <ion-accordion value="first">
-                <ion-item slot="header">
-                <ion-label>Additional Information</ion-label>
+                <ion-item class="accordian-header" slot="header" color="white">
+                    <ion-label class="accordian-title">Additional Information</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content">
-                <ion-label>Engagement Code</ion-label>
-                <ion-input></ion-input>
-                <ion-label>Activity ID</ion-label>
-                <ion-input></ion-input>
-                <ion-label>Notes</ion-label>
-                <ion-textarea></ion-textarea>
+                    <ion-label>Engagement Code</ion-label>
+                    <ion-input class="input-field"></ion-input>
+                    <ion-label>Activity ID</ion-label>
+                    <ion-input class="input-field"></ion-input>
+                    <ion-label>Notes</ion-label>
+                    <ion-textarea class="input-field"></ion-textarea>
                 </div>
             </ion-accordion>
         </ion-accordion-group>
