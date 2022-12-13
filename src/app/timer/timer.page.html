@@ -1,44 +1,50 @@
 
 <ion-content [fullscreen]="true">
-  <ion-toolbar></ion-toolbar>
-  <h4>Timer</h4>
 
-  <div class="stopwatch pt-3">
-    <h1>Record Time</h1>
-    <ion-label>
-      {{displayTime}}
-    </ion-label>
-    <ion-grid>
-      <ion-row text-center class="mt-5">
-        <ion-col class="col-12" *ngIf="!running && time === blankTime">
-          <button class="circle-button circle-button-bg font-md" ion-button (click)="start()">Start</button>
-        </ion-col>
-        <ion-col class="col-12" *ngIf="running">
-          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="pause()">Pause</button>
-          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="stop()">Stop</button>
-        </ion-col>
-        <ion-col class="col-12" *ngIf="!running && time !== blankTime">
-          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="resume()">Resume</button>
-          <button class="circle-button circle-button-bg circle-button-red font-md" ion-button (click)="stop()">Stop</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+    <ion-toolbar></ion-toolbar>
+    <h4>Timer</h4>
 
-  <ion-accordion-group>
-      <ion-accordion value="first">
-        <ion-item slot="header">
-          <ion-label>Additional Information</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-label>Engagement Code</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Activity ID</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Notes</ion-label>
-          <ion-textarea></ion-textarea>
+    <div class="page-content">
+    <h1 class="title sub-title">Record Time</h1>
+    <div>
+        <div class="timer">
+            <ion-label class="timer-time">
+                {{displayTime}}
+            </ion-label>
         </div>
-      </ion-accordion>
-  </ion-accordion-group>
+
+        <ion-grid>
+        <ion-row >
+            <ion-col class="button-zone" *ngIf="!running && time === blankTime">
+            <button class="start-button button" ion-button (click)="start()">Start</button>
+            </ion-col>
+            <ion-col class="button-zone" *ngIf="running">
+            <button class="pause-button button" ion-button (click)="pause()">Pause</button>
+            <button class="stop-button button" ion-button (click)="stop()">Stop</button>
+            </ion-col>
+            <ion-col class="button-zone" *ngIf="!running && time !== blankTime">
+            <button class="start-button button" ion-button (click)="resume()">Resume</button>
+            <button class="stop-button button" ion-button (click)="stop()">Stop</button>
+            </ion-col>
+        </ion-row>
+        </ion-grid>
+    </div>
+
+        <ion-accordion-group>
+            <ion-accordion value="first">
+                <ion-item slot="header">
+                <ion-label>Additional Information</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                <ion-label>Engagement Code</ion-label>
+                <ion-input></ion-input>
+                <ion-label>Activity ID</ion-label>
+                <ion-input></ion-input>
+                <ion-label>Notes</ion-label>
+                <ion-textarea></ion-textarea>
+                </div>
+            </ion-accordion>
+        </ion-accordion-group>
+    </div>
 
 </ion-content>
