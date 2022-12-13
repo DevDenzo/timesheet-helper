@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RecordsPage } from './records.page';
 
 import { RecordsPageRoutingModule } from './records-routing.module';
+import { HeaderPage } from '../header/header.page';
 
 @NgModule({
   imports: [
