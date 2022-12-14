@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { TimerPage } from './timer.page';
 
 import { TimerPageRoutingModule } from './timer-routing.module';
-import { HeaderPageModule } from '../header/header.module';
 
 @NgModule({
   imports: [

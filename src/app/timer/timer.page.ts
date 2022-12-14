@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-timer',
-  templateUrl: 'timer.page.html',
-  styleUrls: ['timer.page.scss']
+	selector: 'app-timer',
+	templateUrl: 'timer.page.html',
+	styleUrls: ['timer.page.scss']
 })
 
 export class TimerPage {
@@ -20,6 +20,9 @@ export class TimerPage {
   public timePaused:any = null
   public timeResumed:any = null
   public displayTime:any = "00:00:00"
+  public engagementCode: String = ""
+  public activityId: String = ""
+  public notes: String = ""
 
   start() {
     if(this.running) {
@@ -73,6 +76,10 @@ export class TimerPage {
       this.timeBegan = null;
       this.timeStopped = null;
       this.time = this.blankTime;
+
+      this.engagementCode = "";
+      this.activityId = "";
+      this.notes = ""
   }
 
   zeroPrefix(num: Number, digit: Number) {

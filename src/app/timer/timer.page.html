@@ -16,9 +16,7 @@
         <ion-grid class="buttons">
         <ion-row>
             <ion-col class="button-zone" *ngIf="!running && time === blankTime">
-            <button class="start-button button" ion-button (click)="start()">Start
-                <ion-ripple-effect></ion-ripple-effect>
-            </button>
+            <button class="start-button button" ion-button (click)="start()">Start</button>
             </ion-col>
             <ion-col class="button-zone" *ngIf="running">
             <button class="pause-button button" ion-button (click)="pause()">Pause</button>
@@ -39,11 +37,11 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                     <ion-label>Engagement Code</ion-label>
-                    <ion-input class="input-field"></ion-input>
+                    <ion-input [(ngModel)]="engagementCode" class="input-field"></ion-input>
                     <ion-label>Activity ID</ion-label>
-                    <ion-input class="input-field"></ion-input>
+                    <ion-input [(ngModel)]="activityId" class="input-field"></ion-input>
                     <ion-label>Notes</ion-label>
-                    <ion-textarea class="input-field"></ion-textarea>
+                    <ion-textarea [(ngModel)]="notes" class="input-field"></ion-textarea>
                 </div>
             </ion-accordion>
         </ion-accordion-group>
