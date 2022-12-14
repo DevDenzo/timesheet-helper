@@ -8,105 +8,105 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 
 export class TimerPage {
 
-  constructor() {}
+    constructor() {}
 
-  public timeBegan:any = null
-  public timeStopped:any = null
-  public stoppedDuration:any = 0
-  public started:any = null
-  public running = false
-  public blankTime = "00:00.000"
-  public time = "00:00.000"
-  public timePaused:any = null
-  public timeResumed:any = null
-  public displayTime:any = "00:00:00"
-  public engagementCode: String = ""
-  public activityId: String = ""
-  public notes: String = ""
+    public timeBegan:any = null
+    public timeStopped:any = null
+    public stoppedDuration:any = 0
+    public started:any = null
+    public running = false
+    public blankTime = "00:00.000"
+    public time = "00:00.000"
+    public timePaused:any = null
+    public timeResumed:any = null
+    public displayTime:any = "00:00:00"
+    public engagementCode: String = ""
+    public activityId: String = ""
+    public notes: String = ""
 
-  start() {
-    if(this.running) {
-      return
+    start() {
+        if(this.running) {
+        return
+        }
+
+        if (this.timeBegan === null) {
+            this.reset();
+            this.timeBegan = new Date();
+        }
+
+        if (this.timeStopped !== null) {
+        let newStoppedDuration:any = (+new Date() - this.timeStopped)
+        this.stoppedDuration = this.stoppedDuration + newStoppedDuration;
+        }
+
+        if (this.time !== this.blankTime) {
+        this.stoppedDuration = this.timeResumed - this.timePaused
+        }
+
+        this.started = setInterval(this.clockRunning.bind(this), 10);
+        this.running = true;
+
     }
 
-    if (this.timeBegan === null) {
-        this.reset();
-        this.timeBegan = new Date();
+    stop() {
+        this.running = false;
+        this.timeStopped = new Date();
+        clearInterval(this.started);
+
+        // Create the code here which makes a log of the relevant information. Then clear all the input fields. And provide a notification about the log being sent to records.
+        this.reset()
+
+        this.engagementCode = "";
+        this.activityId = "";
+        this.notes = ""
+
+        this.displayTime = "00:00:00"
     }
 
-    if (this.timeStopped !== null) {
-      let newStoppedDuration:any = (+new Date() - this.timeStopped)
-      this.stoppedDuration = this.stoppedDuration + newStoppedDuration;
+    pause() {
+        this.timePaused = new Date();
+        this.running = false;
+        clearInterval(this.started);
     }
 
-    if (this.time !== this.blankTime) {
-      this.stoppedDuration = this.timeResumed - this.timePaused
+    resume() {
+        this.timeResumed = new Date();
+        this.start();
     }
 
-    this.started = setInterval(this.clockRunning.bind(this), 10);
-    this.running = true;
+    reset() {
+        this.running = false;
+        clearInterval(this.started);
+        this.stoppedDuration = 0;
+        this.timeBegan = null;
+        this.timeStopped = null;
+        this.time = this.blankTime;
+    }
 
-  }
-
-  stop() {
-    this.running = false;
-    this.timeStopped = new Date();
-    clearInterval(this.started);
-
-    // Create the code here which makes a log of the relevant information. Then clear all the input fields. And provide a notification about the log being sent to records.
-    this.reset()
-
-    this.engagementCode = "";
-    this.activityId = "";
-    this.notes = ""
-
-    this.displayTime = "00:00:00"
-  }
-
-  pause() {
-    this.timePaused = new Date();
-    this.running = false;
-    clearInterval(this.started);
-  }
-
-  resume() {
-      this.timeResumed = new Date();
-      this.start();
-  }
-
-  reset() {
-      this.running = false;
-      clearInterval(this.started);
-      this.stoppedDuration = 0;
-      this.timeBegan = null;
-      this.timeStopped = null;
-      this.time = this.blankTime;
-  }
-
-  zeroPrefix(num: Number, digit: Number) {
-      let zero = '';
-      for(let i = 0; i < digit; i++) {
+    zeroPrefix(num: Number, digit: Number) {
+        let zero = '';
+        for(let i = 0; i < digit; i++) {
         zero += '0';
-      }
-      return (zero + num).slice(-digit);
-  }
+        }
+        return (zero + num).slice(-digit);
+    }
 
-  clockRunning(){
-      let currentTime:any = new Date()
-      let timeElapsed:any = new Date(currentTime - this.timeBegan - this.stoppedDuration)
-      let hour = timeElapsed.getUTCHours()
-      let min = timeElapsed.getUTCMinutes()
-      let sec = timeElapsed.getUTCSeconds()
-      let ms = timeElapsed.getUTCMilliseconds();
-      this.time =
-      this.zeroPrefix(hour, 2) + ":" +
-      this.zeroPrefix(min, 2) + ":" +
-      this.zeroPrefix(sec, 2) + "." +
-      this.zeroPrefix(ms, 3);
+    clockRunning(){
+        let currentTime:any = new Date()
+        let timeElapsed:any = new Date(currentTime - this.timeBegan - this.stoppedDuration)
+        let hour = timeElapsed.getUTCHours()
+        let min = timeElapsed.getUTCMinutes()
+        let sec = timeElapsed.getUTCSeconds()
+        let ms = timeElapsed.getUTCMilliseconds();
+        this.time =
+        this.zeroPrefix(hour, 2) + ":" +
+        this.zeroPrefix(min, 2) + ":" +
+        this.zeroPrefix(sec, 2) + "." +
+        this.zeroPrefix(ms, 3);
 
-      this.displayTime =
-      this.zeroPrefix(hour, 2) + ":" +
-      this.zeroPrefix(min, 2) + ":" +
-      this.zeroPrefix(sec, 2)
-  };
+        this.displayTime =
+        this.zeroPrefix(hour, 2) + ":" +
+        this.zeroPrefix(min, 2) + ":" +
+        this.zeroPrefix(sec, 2)
+    };
 }
