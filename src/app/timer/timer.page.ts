@@ -55,6 +55,11 @@ export class TimerPage {
 
     // Create the code here which makes a log of the relevant information. Then clear all the input fields. And provide a notification about the log being sent to records.
     this.reset()
+
+    this.engagementCode = "";
+    this.activityId = "";
+    this.notes = ""
+
     this.displayTime = "00:00:00"
   }
 
@@ -76,10 +81,6 @@ export class TimerPage {
       this.timeBegan = null;
       this.timeStopped = null;
       this.time = this.blankTime;
-
-      this.engagementCode = "";
-      this.activityId = "";
-      this.notes = ""
   }
 
   zeroPrefix(num: Number, digit: Number) {
