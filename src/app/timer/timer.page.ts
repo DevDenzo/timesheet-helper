@@ -1,4 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { TimerEntry } from './timer.interface';
+import { TimerService } from './timer.service';
 
 @Component({
 	selector: 'app-timer',
@@ -8,7 +10,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 
 export class TimerPage {
 
-    constructor() {}
+    constructor(
+        public timerService: TimerService
+    ) {}
 
     public timeBegan:any = null
     public timeStopped:any = null
@@ -20,9 +24,11 @@ export class TimerPage {
     public timePaused:any = null
     public timeResumed:any = null
     public displayTime:any = "00:00:00"
+    public eventName: String = ""
     public engagementCode: String = ""
     public activityId: String = ""
     public notes: String = ""
+    public timerEntry!: TimerEntry
 
     start() {
         if(this.running) {
@@ -53,9 +59,10 @@ export class TimerPage {
         this.timeStopped = new Date();
         clearInterval(this.started);
 
-        // Create the code here which makes a log of the relevant information. Then clear all the input fields. And provide a notification about the log being sent to records.
+        this.saveTimerEntryDetails()
         this.reset()
 
+        this.eventName = "";
         this.engagementCode = "";
         this.activityId = "";
         this.notes = ""
@@ -109,4 +116,16 @@ export class TimerPage {
         this.zeroPrefix(min, 2) + ":" +
         this.zeroPrefix(sec, 2)
     };
+
+    saveTimerEntryDetails() {
+        this.timerEntry = {
+            eventName: this.eventName,
+            engagementCode: this.engagementCode,
+            activityId: this.activityId,
+            notes: this.notes,
+            time: this.time
+        };
+
+        this.timerService.setTimerEntry(this.timerEntry)
+    }
 }

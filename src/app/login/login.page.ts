@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +9,21 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router) { }
+    public email : string = ""
 
-  ngOnInit() {
-  }
+    constructor(
+      private loginService: LoginService,
+      private router: Router
+      ) { }
 
-  verifyLogin(): boolean {
-    this.router.navigate(['']);
-    return true
-  }
+    ngOnInit() {
+    }
+
+    verifyLogin(): boolean {
+        this.router.navigate(['']);
+        this.loginService.setEmail(this.email)
+        return true
+    }
 
 //   emailValidation(): void {
 //     var pattern = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;

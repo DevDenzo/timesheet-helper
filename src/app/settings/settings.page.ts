@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../login/login.service';
+import { TimerService } from '../timer/timer.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,10 +9,15 @@ import { Component } from '@angular/core';
 })
 export class SettingsPage {
 
-  constructor() {}
+  public email: string = this.loginService.getEmail()
+
+  constructor(
+    public timerService: TimerService,
+    private loginService: LoginService
+) {}
 
   editEmail() {
-    console.log("Clicked")
+    console.log(this.timerService.getTimerEntry())
   }
 
 }
