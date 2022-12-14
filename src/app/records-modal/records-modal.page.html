@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>Edit Record</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+      <ion-label>Date Recorded</ion-label>
+      <ion-input class="input-field input-field-disabled" value="{{eventName}}"></ion-input>
+      <ion-label>Duration</ion-label>
+      <ion-input class="input-field input-field-disabled"></ion-input>
+      <ion-label>Event Name</ion-label>
+      <ion-input class="input-field"></ion-input>
+      <ion-label>Engagement Code</ion-label>
+      <ion-input class="input-field" ></ion-input>
+      <ion-label>Activity ID</ion-label>
+      <ion-input class="input-field"></ion-input>
+      <ion-label>Notes</ion-label>
+      <ion-textarea class="input-field"></ion-textarea>
+  </div>
+</ion-content>

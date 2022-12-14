@@ -11,49 +11,9 @@ export class RecordsService {
     engagementCode:"fgfg",
 notes:"dsfsdfsd",
 time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
-},
-{eventName: "SHUS",
-engagementCode:"fgfg",
-notes:"dsfsdfsd",
-time:"dfsdfsd",
-activityId:"idjfijif"
+activityId:"idjfijif",
+date: "Dec 20 2022",
+displayTime: "idfigh"
 }
     ];
 
@@ -68,6 +28,6 @@ activityId:"idjfijif"
     }
 
     clearListOfRecords() {
-        this.listOfRecords = [];
+        this.listOfRecords.splice(0);
     }
 }

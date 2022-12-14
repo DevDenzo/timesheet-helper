@@ -12,7 +12,7 @@
                 <ion-item>
                     <span class="record-entry row">
                         <ion-label class="even-entry">Event Name</ion-label>
-                        <ion-label class="even-entry">Time</ion-label>
+                        <ion-label class="even-entry">Duration</ion-label>
                         <ion-icon class="even-entry-icon"></ion-icon>
                     </span>
                 </ion-item>
@@ -20,7 +20,7 @@
                     <div class="record-entry">
                         <span class="row">
                             <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.eventName }}</ion-label>
-                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.time }}</ion-label>
+                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.displayTime }}</ion-label>
                             <ion-icon (click)="editEntry(record)" name="information-circle-sharp" [ngClass]="(i+1)%2!== 0? 'odd-entry-icon' : 'even-entry-icon' "></ion-icon>
                         </span>
 

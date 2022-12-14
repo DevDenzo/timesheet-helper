@@ -4,4 +4,6 @@ export interface TimerEntry {
     activityId: String;
     notes: String;
     time: String;
+    date: String;
+    displayTime: String;
 }

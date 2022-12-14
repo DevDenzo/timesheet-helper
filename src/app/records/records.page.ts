@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, ModalController } from '@ionic/angular';
+import { RecordsModalPage } from '../records-modal/records-modal.page';
 import { TimerEntry } from '../timer/timer.interface';
 import { RecordsService } from './records.service';
 
@@ -11,8 +12,11 @@ import { RecordsService } from './records.service';
 export class RecordsPage {
 
 	public listOfRecords: TimerEntry[] = this.recordsService.getListOfRecords();
+	message = 'This modal example uses the modalController to present and dismiss modals.';
+	public recordToEdit!: TimerEntry
 
 	constructor(
+		private modalCtrl: ModalController,
 		public recordsService: RecordsService
 	) {}
 
@@ -25,17 +29,32 @@ export class RecordsPage {
 	}
 
 	clearList() {
-		this.recordsService.clearListOfRecords()
+				this.recordsService.clearListOfRecords()
 	}
 
-	editEntry(record: TimerEntry) {
-		console.log(record)
-	}
+    editEntry(record: TimerEntry) {
+        this.recordToEdit = record;
+        this.openModal()
+    }
 
-  	onIonInfinite(ev: any) {
-    	setTimeout(() => {
-      		(ev as InfiniteScrollCustomEvent).target.complete();
-    	}, 500);
-  	}
+    async openModal() {
+        const modal = await this.modalCtrl.create({
+        component: RecordsModalPage,
+        componentProps: this.recordToEdit
+        });
+        modal.present();
+
+        const { data, role } = await modal.onWillDismiss();
+
+        if (role === 'confirm') {
+        this.message = `Hello, ${data}!`;
+        }
+    }
+
+		onIonInfinite(ev: any) {
+			setTimeout(() => {
+					(ev as InfiniteScrollCustomEvent).target.complete();
+			}, 500);
+		}
 
 }

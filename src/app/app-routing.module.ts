@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'records-modal',
+    loadChildren: () => import('./records-modal/records-modal.module').then( m => m.RecordsModalPageModule)
   }
 ];
 @NgModule({

@@ -31,6 +31,7 @@ export class TimerPage {
     public activityId: String = ""
     public notes: String = ""
     public timerEntry!: TimerEntry
+    public date: String = ""
 
     start() {
         if(this.running) {
@@ -51,6 +52,8 @@ export class TimerPage {
         this.stoppedDuration = this.timeResumed - this.timePaused
         }
 
+        this.date = `${new Date().toLocaleString().replace(', ',' ')}`;
+        console.log(this.date)
         this.started = setInterval(this.clockRunning.bind(this), 10);
         this.running = true;
 
@@ -67,7 +70,8 @@ export class TimerPage {
         this.eventName = "";
         this.engagementCode = "";
         this.activityId = "";
-        this.notes = ""
+        this.notes = "";
+        this.date = "";
 
         this.displayTime = "00:00:00"
     }
@@ -129,7 +133,9 @@ export class TimerPage {
             engagementCode: this.engagementCode,
             activityId: this.activityId,
             notes: this.notes,
-            time: this.time
+            time: this.time,
+            date: this.date,
+            displayTime: this.displayTime
         };
 
         this.timerService.setTimerEntry(this.timerEntry)
