@@ -1,6 +1,44 @@
 <ion-content [fullscreen]="true">
-  <ion-toolbar></ion-toolbar>
-  <h4>Records</h4>
+    <ion-toolbar></ion-toolbar>
+    <h4>Records</h4>
+    <div class="right">
+        <button class="clear-button button" (click)="clearList()">Clear</button>
+        <button class="clear-button button" (click)="printList()">Print</button>
+    </div>
+
+    <div class="page-content">
+
+        <div class="scroll-area">
+          <ion-list>
+                <ion-item>
+                    <span class="record-entry row">
+                        <ion-label class="even-entry">Event Name</ion-label>
+                        <ion-label class="even-entry">Time</ion-label>
+                        <ion-icon class="even-entry-icon"></ion-icon>
+                    </span>
+                </ion-item>
+                <ion-item *ngFor="let record of listOfRecords; ; index as i">
+                    <div class="record-entry">
+                        <span class="row">
+                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.eventName }}</ion-label>
+                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.time }}</ion-label>
+                            <ion-icon name="menu-sharp" [ngClass]="(i+1)%2!== 0? 'odd-entry-icon' : 'even-entry-icon' "></ion-icon>
+                        </span>
+
+                  </div>
+              </ion-item>
+          </ion-list>
+          <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </div>
+
+        <div class="centered">
+            <button class="export-button button" (click)="exportToCsv()">Export</button>
+        </div>
+
+    </div>
+
 
 
 </ion-content>

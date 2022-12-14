@@ -1,0 +1,61 @@
+.button{
+    min-height: 40px;
+    width: 20%;
+    border-radius: 15px;
+    text-align: center;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: #000000;
+}
+
+.export-button{
+    border: 3px solid #2E2E38;
+}
+
+.clear-button{
+    border: 3px solid #2E2E38;
+}
+
+.odd-entry{
+    border: 0px solid #2E2E38 !important;
+    background-color: #2E2E38;
+    padding: 15px;
+    flex: 45%
+}
+
+.even-entry{
+    border: 0px solid #17171B !important;
+    background-color: #17171B;
+    padding: 15px;
+    flex: 45%
+}
+
+.odd-entry-icon{
+    border: 0px solid #2E2E38 !important;
+    background-color: #2E2E38;
+    padding: 17px;
+    flex: 10%
+}
+
+.even-entry-icon{
+    border: 0px solid #17171B !important;
+    background-color: #17171B;
+    padding: 17px;
+    flex: 10%
+}
+
+.record-entry{
+    min-width: 100%;
+    min-height: 40px
+}
+
+.centered {
+    padding-bottom: 25%;
+}
+
+.row {
+    display:flex
+}
