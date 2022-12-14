@@ -1,14 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title>Login</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-img src='..\..\assets\icon\ey-logo.png'></ion-img>
-  <ion-label>Email</ion-label>
-  <ion-input [(ngModel)]="email"></ion-input>
-  <ion-label>Password</ion-label>
-  <ion-input></ion-input>
-  <ion-button (click)='verifyLogin()'>Login</ion-button>
+	<div class="page-content">
+    <div class="centered first">
+        <ion-img class="logo" src='..\..\assets\icon\ey-logo.png'></ion-img>
+    </div>
+    <div class="input">
+        <ion-label>Email</ion-label>
+        <ion-input class="input-field" [(ngModel)]="email"></ion-input>
+    </div>
+    <div class="input">
+        <ion-label>Password</ion-label>
+        <ion-input class="input-field" ></ion-input>
+    </div>
+    <div class="centered">
+        <button class="button login-button" (click)='verifyLogin()'>Login</button>
+    </div>
+	</div>
 </ion-content>

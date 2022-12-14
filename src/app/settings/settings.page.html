@@ -1,20 +1,20 @@
 <ion-content [fullscreen]="true">
 
-  <ion-toolbar></ion-toolbar>
-  <h4>Settings</h4>
+    <ion-toolbar></ion-toolbar>
+    <h4>Settings</h4>
 
 
-  <div class="page-content">
-      <div>
-        <ion-label>Logged In As</ion-label>
-        <ion-input [disabled]="true">{{ email }}</ion-input>
-      </div>
-    <div>
-      <ion-input [disabled]="true">Export Email</ion-input>
-      <span>
-        <ion-label>Export Email</ion-label>
-        <ion-icon (click)="editEmail()" name="pencil-sharp"></ion-icon>
-      </span>
+    <div class="page-content">
+        <div>
+            <ion-label>Logged In As</ion-label>
+            <ion-input class="input-field input-field-disabled field-spacing" [disabled]="true">{{ email }}</ion-input>
+        </div>
+        <div>
+            <ion-label>Export Email</ion-label>
+                <ion-input [ngClass]="saved? 'input-field field-spacing input-field-success' : 'input-field field-spacing' " class="input-field field-spacing" [(ngModel)]="exportEmail"></ion-input>
+                <div class="centered">
+                    <button class="save-button button" (click)="saveEditedEmail()">Save</button>
+                </div>
+        </div>
     </div>
-  </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { timeout } from 'rxjs';
 import { LoginService } from '../login/login.service';
 import { TimerService } from '../timer/timer.service';
 
@@ -9,15 +10,23 @@ import { TimerService } from '../timer/timer.service';
 })
 export class SettingsPage {
 
-  public email: string = this.loginService.getEmail()
+    public email: string = this.loginService.getEmail();
+    public exportEmail: string = this.email;
+    public savedExportEmail: string = ""
+    public saved = false;
 
-  constructor(
-    public timerService: TimerService,
-    private loginService: LoginService
-) {}
+    constructor(
+        public timerService: TimerService,
+        private loginService: LoginService
+    ) {}
 
-  editEmail() {
-    console.log(this.timerService.getTimerEntry())
-  }
+    saveEditedEmail() {
+        this.savedExportEmail = this.exportEmail
+        this.saved = true
+
+        setTimeout(() => {
+            this.saved = false
+        }, 2000);
+    }
 
 }

@@ -41,14 +41,29 @@ h4 {
 
 .page-content{
     padding-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.input{
+    padding-bottom: 10px;
 }
 
 .input-field{
-    margin-top: 3px;
+    margin-top: 5px;
     border: 2px solid white;
     border-radius: 6px;
     font-family: 'Roboto', sans-serif;
-    font-weight: lighter;
     font-size: 16px;
     margin-bottom: 5px;
+}
+
+.input-field-disabled{
+    background-color: #2E2E38;
+}
+
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
