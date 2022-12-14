@@ -3,7 +3,6 @@
     <h4>Records</h4>
     <div class="right">
         <button class="clear-button button" (click)="clearList()">Clear</button>
-        <button class="clear-button button" (click)="printList()">Print</button>
     </div>
 
     <div class="page-content">
@@ -22,7 +21,7 @@
                         <span class="row">
                             <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.eventName }}</ion-label>
                             <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.time }}</ion-label>
-                            <ion-icon name="menu-sharp" [ngClass]="(i+1)%2!== 0? 'odd-entry-icon' : 'even-entry-icon' "></ion-icon>
+                            <ion-icon (click)="editEntry(record)" name="information-circle-sharp" [ngClass]="(i+1)%2!== 0? 'odd-entry-icon' : 'even-entry-icon' "></ion-icon>
                         </span>
 
                   </div>

@@ -11,10 +11,10 @@ export class AppComponent {
     private router: Router
   ) {
 
-    this.initializeApp();
+    // this.initializeApp();
   }
 
-  initializeApp() {
-    this.router.navigate(['/login']);
-  }
+  // initializeApp() {
+  //   this.router.navigate(['/login']);
+  // }
 }

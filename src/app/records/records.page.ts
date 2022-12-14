@@ -28,10 +28,14 @@ export class RecordsPage {
 		this.recordsService.clearListOfRecords()
 	}
 
-  onIonInfinite(ev: any) {
-    setTimeout(() => {
-      (ev as InfiniteScrollCustomEvent).target.complete();
-    }, 500);
-  }
+	editEntry(record: TimerEntry) {
+		console.log(record)
+	}
+
+  	onIonInfinite(ev: any) {
+    	setTimeout(() => {
+      		(ev as InfiniteScrollCustomEvent).target.complete();
+    	}, 500);
+  	}
 
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { RecordsService } from '../records/records.service';
 import { TimerEntry } from './timer.interface';
 import { TimerService } from './timer.service';
 
@@ -11,6 +12,7 @@ import { TimerService } from './timer.service';
 export class TimerPage {
 
     constructor(
+        public recordsService: RecordsService,
         public timerService: TimerService
     ) {}
 
@@ -118,6 +120,10 @@ export class TimerPage {
     };
 
     saveTimerEntryDetails() {
+        if(this.eventName === "") {
+            this.eventName = "Unamed Event"
+        }
+
         this.timerEntry = {
             eventName: this.eventName,
             engagementCode: this.engagementCode,
@@ -127,5 +133,6 @@ export class TimerPage {
         };
 
         this.timerService.setTimerEntry(this.timerEntry)
+        this.recordsService.addEntryToList(this.timerEntry)
     }
 }
