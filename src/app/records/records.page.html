@@ -33,7 +33,7 @@
         </div>
 
         <div class="centered">
-            <button class="export-button button" (click)="exportToCsv()">Export</button>
+            <button [ngClass]="exported === 'Exported'? 'save-button button' : 'button export-button' " (click)="exportToCsv()">{{exported}}</button>
         </div>
 
     </div>

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-button (click)="cancel()">Close</ion-button>
     </ion-buttons>
-    <ion-title>Edit Record</ion-title>
+    <ion-title class="title">Edit Record</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="confirm()" [strong]="true">Save</ion-button>
     </ion-buttons>
@@ -12,16 +12,16 @@
 <ion-content class="ion-padding">
   <div>
       <ion-label>Date Recorded</ion-label>
-      <ion-input class="input-field input-field-disabled" value="{{eventName}}"></ion-input>
+      <ion-input [disabled]="true" class="input-field input-field-disabled" value="{{date}}"></ion-input>
       <ion-label>Duration</ion-label>
-      <ion-input class="input-field input-field-disabled"></ion-input>
+      <ion-input [disabled]="true" class="input-field input-field-disabled" value="{{displayTime}}"></ion-input>
       <ion-label>Event Name</ion-label>
-      <ion-input class="input-field"></ion-input>
+      <ion-input [(ngModel)]="eventName" class="input-field" value="{{eventName}}"></ion-input>
       <ion-label>Engagement Code</ion-label>
-      <ion-input class="input-field" ></ion-input>
+      <ion-input [(ngModel)]="engagementCode" class="input-field" value="{{engagementCode}}"></ion-input>
       <ion-label>Activity ID</ion-label>
-      <ion-input class="input-field"></ion-input>
+      <ion-input [(ngModel)]="activityId" class="input-field"value="{{activityId}}"></ion-input>
       <ion-label>Notes</ion-label>
-      <ion-textarea class="input-field"></ion-textarea>
+      <ion-textarea [(ngModel)]="notes" class="input-field" value="{{notes}}"></ion-textarea>
   </div>
 </ion-content>

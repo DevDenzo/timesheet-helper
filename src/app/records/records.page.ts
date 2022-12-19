@@ -12,20 +12,20 @@ import { RecordsService } from './records.service';
 export class RecordsPage {
 
 	public listOfRecords: TimerEntry[] = this.recordsService.getListOfRecords();
-	message = 'This modal example uses the modalController to present and dismiss modals.';
-	public recordToEdit!: TimerEntry
+    public recordToEdit!: TimerEntry
+    public exported: string = "Export"
 
 	constructor(
 		private modalCtrl: ModalController,
 		public recordsService: RecordsService
 	) {}
 
-	printList() {
-		console.log(this.listOfRecords)
-	}
-
 	exportToCsv(){
-		console.log('sewey')
+    this.exported = "Exported"
+
+    setTimeout(() => {
+        this.exported = "Export"
+    }, 2000);
 	}
 
 	clearList() {
@@ -33,21 +33,26 @@ export class RecordsPage {
 	}
 
     editEntry(record: TimerEntry) {
-        this.recordToEdit = record;
-        this.openModal()
+        this.openModal(record)
     }
 
-    async openModal() {
+    async openModal(record: TimerEntry) {
         const modal = await this.modalCtrl.create({
         component: RecordsModalPage,
-        componentProps: this.recordToEdit
+        componentProps: record
         });
         modal.present();
 
         const { data, role } = await modal.onWillDismiss();
 
         if (role === 'confirm') {
-        this.message = `Hello, ${data}!`;
+            record.eventName= data.eventName
+            record.engagementCode= data.engagementCode
+            record.activityId= data.activityId
+            record.notes= data.notes
+            record.time= data.time
+            record.date= data.date
+            record.displayTime= data.displayTime
         }
     }
 

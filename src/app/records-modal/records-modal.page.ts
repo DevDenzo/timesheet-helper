@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { TimerEntry } from '../timer/timer.interface';
 
 @Component({
   selector: 'app-records-modal',
@@ -14,6 +15,9 @@ export class RecordsModalPage {
   public notes: String = this.navParams.get('notes');
   public date: String = this.navParams.get('date');
   public time: String = this.navParams.get('time')
+  public displayTime: String = this.navParams.get('displayTime')
+
+  public editedRecord!: TimerEntry
 
   constructor(
     private modalCtrl: ModalController,
@@ -24,6 +28,16 @@ export class RecordsModalPage {
   }
 
   confirm() {
-    return this.modalCtrl.dismiss(this.eventName, 'confirm');
+    this.editedRecord = {
+      eventName: this.eventName,
+      engagementCode:this.engagementCode,
+      notes:this.notes,
+    time: this.time,
+    activityId:this.activityId,
+    date: this.date,
+    displayTime: this.displayTime
+
+    }
+    return this.modalCtrl.dismiss(this.editedRecord, 'confirm');
   }
 }
