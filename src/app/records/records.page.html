@@ -11,16 +11,16 @@
           <ion-list>
                 <ion-item>
                     <span class="record-entry row">
-                        <ion-label class="even-entry">Event Name</ion-label>
-                        <ion-label class="even-entry">Duration</ion-label>
-                        <ion-icon class="even-entry-icon"></ion-icon>
+                        <ion-label class="even-entry-name">Event Name</ion-label>
+                        <ion-label class="even-entry-time">Duration</ion-label>
+                        <ion-icon name="information-sharp" class="even-entry-icon"></ion-icon>
                     </span>
                 </ion-item>
                 <ion-item *ngFor="let record of listOfRecords; ; index as i">
                     <div class="record-entry">
                         <span class="row">
-                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.eventName }}</ion-label>
-                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry' : 'even-entry' " >{{ record.displayTime }}</ion-label>
+                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry-name' : 'even-entry-name' " >{{ record.eventName }}</ion-label>
+                            <ion-label [ngClass]="(i+1)%2!== 0? 'odd-entry-time' : 'even-entry-time' " >{{ record.displayTime }}</ion-label>
                             <ion-icon (click)="editEntry(record)" name="information-circle-sharp" [ngClass]="(i+1)%2!== 0? 'odd-entry-icon' : 'even-entry-icon' "></ion-icon>
                         </span>
 
