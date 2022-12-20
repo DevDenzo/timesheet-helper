@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { RecordsService } from '../records/records.service';
 import { TimerEntry } from './timer.interface';
 import { TimerService } from './timer.service';
@@ -13,7 +14,8 @@ export class TimerPage {
 
     constructor(
         public recordsService: RecordsService,
-        public timerService: TimerService
+        public timerService: TimerService,
+        private toastController: ToastController
     ) {}
 
     public timeBegan:any = null
@@ -123,6 +125,17 @@ export class TimerPage {
         this.zeroPrefix(sec, 2)
     };
 
+    async saveNotification(position: 'top' | 'middle' | 'bottom') {
+        const toast = await this.toastController.create({
+          message: 'Time Record Saved Successfully',
+          duration: 3000,
+          position: position,
+          cssClass: 'custom-toast'
+        });
+
+        await toast.present();
+    }
+
     saveTimerEntryDetails() {
         if(this.eventName === "") {
             this.eventName = "Unamed Event"
@@ -140,5 +153,7 @@ export class TimerPage {
 
         this.timerService.setTimerEntry(this.timerEntry)
         this.recordsService.addEntryToList(this.timerEntry)
+
+        this.saveNotification('top');
     }
 }

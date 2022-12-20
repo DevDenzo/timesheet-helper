@@ -81,3 +81,12 @@ h4 {
 ion-toolbar {
   --background: #000000;
 }
+
+ion-toast.custom-toast {
+    --background: #000000;
+    --box-shadow: 3px 3px 10px 0 white;
+    --color: white;
+    --border-color: white;
+    --border-style: solid;
+    --border-width: 1px;
+  }
