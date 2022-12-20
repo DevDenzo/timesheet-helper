@@ -31,5 +31,10 @@ then click run on android studio so the app starts on the emulated device
 To run as a phone application using xcode run
 ``` ionic capacitor copy ios ```
 
+Use To Build and Copy Files then open xcode or android studio
+
+```ionic capacitor run ios```
+or  ```ionic capacitor run android```
+
 
 

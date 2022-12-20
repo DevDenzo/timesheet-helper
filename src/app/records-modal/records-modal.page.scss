@@ -1,5 +1,19 @@
-.title {
+.md .title {
     font-size: large;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+}
+
+.ios .title {
+  font-size: medium;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.ios .save {
+  color: #000000;
+}
+
+.md .save {
+  color: white
 }

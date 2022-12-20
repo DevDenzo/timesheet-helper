@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="cancel()">Close</ion-button>
+      <ion-button class="cancel" (click)="cancel()">Close</ion-button>
     </ion-buttons>
     <ion-title class="title">Edit Record</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons class="save" slot="end">
       <ion-button (click)="confirm()" [strong]="true">Save</ion-button>
     </ion-buttons>
   </ion-toolbar>
