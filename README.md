@@ -5,6 +5,9 @@ Timesheet helper mobile application developed using ionic and angular. The idea 
 
 Run
 
+To get the correct node modules
+```npm install```
+
 To get Ionic 
 ```npm install -g @ionic/cli```
 
